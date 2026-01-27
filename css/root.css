@@ -1,0 +1,322 @@
+/* Doughmination Portfolio - Professional Hacker Aesthetic with Pastels */
+
+:root {
+  /* Pastel pink terminal palette */
+  --bg-primary: #2a1f2e;
+  --bg-secondary: #3d2f42;
+  --bg-tertiary: #4d3d52;
+  
+  --pastel-cyan: #a8dadc;
+  --pastel-pink: #f1c0e8;
+  --pastel-green: #b8e0d2;
+  --pastel-purple: #d4c5f9;
+  --pastel-yellow: #f9f3df;
+  --pastel-blue: #cfe8fc;
+  
+  --text-primary: #e8e6e3;
+  --text-secondary: #a8a5a0;
+  --text-accent: var(--pastel-cyan);
+  
+  --border-color: #3a3d45;
+  --shadow: rgba(0, 0, 0, 0.3);
+  
+  --font-mono: 'Fira Code', 'Consolas', 'Monaco', monospace;
+  --font-sans: 'Inter', 'Segoe UI', system-ui, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #2a1f2e 0%, #3d2f42 50%, #2a1f2e 100%);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  min-height: 100vh;
+  padding: 2rem;
+  position: relative;
+}
+
+/* Terminal-like container effect */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      rgba(168, 218, 220, 0.03) 0px,
+      transparent 1px,
+      transparent 2px,
+      rgba(168, 218, 220, 0.03) 3px
+    );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Main content wrapper */
+body > section {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto 2rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+body > section:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 48px var(--shadow);
+}
+
+/* Header section */
+section:first-child {
+  text-align: center;
+  background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-secondary) 100%);
+  border: 2px solid var(--border-color);
+}
+
+h1 {
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--pastel-cyan) 0%, var(--pastel-purple) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.5px;
+}
+
+h1::before {
+  content: '> ';
+  color: var(--pastel-green);
+  -webkit-text-fill-color: var(--pastel-green);
+}
+
+h2 {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+h2::before {
+  content: '$ ';
+  color: var(--pastel-pink);
+}
+
+h3 {
+  font-family: var(--font-mono);
+  font-size: 1.4rem;
+  color: var(--pastel-cyan);
+  margin-bottom: 1rem;
+  border-left: 4px solid var(--pastel-green);
+  padding-left: 1rem;
+}
+
+h3::before {
+  content: '// ';
+  color: var(--pastel-purple);
+}
+
+h4 {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  color: var(--pastel-purple);
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+h4::before {
+  content: '→ ';
+  color: var(--pastel-green);
+}
+
+p {
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  line-height: 1.8;
+}
+
+/* Lists */
+ul {
+  list-style: none;
+  margin-left: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--pastel-green);
+  font-weight: bold;
+}
+
+/* Project cards */
+.project-card {
+  display: block;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--pastel-cyan);
+  border-radius: 6px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, transparent 0%, rgba(168, 218, 220, 0.1) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover {
+  border-left-color: var(--pastel-purple);
+  transform: translateX(4px);
+  box-shadow: -4px 0 12px rgba(168, 218, 220, 0.2);
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+.project-card h4 {
+  margin-top: 0;
+  color: var(--pastel-cyan);
+}
+
+.project-card:hover h4 {
+  color: var(--pastel-purple);
+}
+
+.project-card p {
+  margin-bottom: 0;
+  color: var(--text-secondary);
+}
+
+/* Footer styling */
+footer {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 3rem auto 0;
+  text-align: center;
+  padding: 1.5rem;
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.copyright {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.copyright p {
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.copyright a {
+  color: var(--pastel-cyan);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-family: var(--font-mono);
+}
+
+.copyright a:hover {
+  color: var(--pastel-pink);
+  text-decoration: underline;
+}
+
+.arch-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-secondary) 100%);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 0.5rem 1.5rem;
+  margin-top: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.arch-badge:hover {
+  border-color: var(--pastel-cyan);
+  box-shadow: 0 0 20px rgba(168, 218, 220, 0.3);
+  transform: scale(1.05);
+}
+
+.arch-badge::before {
+  content: '🐧 ';
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+  }
+  
+  body > section {
+    padding: 1.5rem;
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+  }
+  
+  h2 {
+    font-size: 0.9rem;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection styling */
+::selection {
+  background: var(--pastel-cyan);
+  color: var(--bg-primary);
+}
+
+::-moz-selection {
+  background: var(--pastel-cyan);
+  color: var(--bg-primary);
+}
+
+/* Link styling for better accessibility */
+a:focus {
+  outline: 2px solid var(--pastel-cyan);
+  outline-offset: 2px;
+}

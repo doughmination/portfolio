@@ -148,6 +148,12 @@
     </footer>
 
     <script src="/js/root.js"></script>
+    <script>
+        function cb(response) {
+        document.getElementById('visits').innerText = response.value;
+        }
+        </script>
+        <script async src="https://abacus.jasoncameron.dev/hit/doughmination.co.uk/visits?callback=cb"></script>
 </body>
 
 </html>
